@@ -63,9 +63,11 @@ The user can switch between the following modes using on-screen buttons:
 ---
 
 ## 🗂️ Project Structure
+```
 etch-a-sketch/
 │
 ├── index.html
 ├── style.css
 ├── script.js
 └── README.md
+```
