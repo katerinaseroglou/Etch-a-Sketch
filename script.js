@@ -49,7 +49,7 @@ function createGrid(size) {
                 cell.style.backgroundColor = ""; // Reset to default
             } else if (currentMode === "darken") {
                 let darkness = cell.dataset.darkness || 0; // if no darkness, start at 0
-                darkness = Math.min(Number(darkness) + 20, 100); // Increase darkness by 10%, max 100%
+                darkness = Math.min(Number(darkness) + 10, 100); // Increase darkness by 10%, max 100%
                 cell.dataset.darkness = darkness;
                 cell.style.backgroundColor = `rgba(0, 0, 0, ${darkness / 100})`; // Set background to black with opacity
             } else if (currentMode === "black") {
