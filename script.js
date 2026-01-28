@@ -30,7 +30,7 @@ function createGrid(size) {
     gridContainer.innerHTML = ""; // Clear existing grid
 
     
-    const container= gridContainer.clientWidth; // Fixed container size in pixels
+    const container= gridContainer.clientWidth; // Fix container size relative to its width
     const cellSize = container / size; // Calculate cell size
 
     for (let i = 0; i < size * size; i++) {
@@ -39,28 +39,49 @@ function createGrid(size) {
         cell.style.width = `${cellSize}px`; 
         cell.style.height = `${cellSize}px`;
 
-        cell.addEventListener("mouseenter", () => {
-            if (currentMode === "random") {
-                const randomColor = `rgb(${Math.floor(Math.random() * 256)}, 
-                ${Math.floor(Math.random() * 256)}, 
-                ${Math.floor(Math.random() * 256)})`; // Generate random color
-                cell.style.backgroundColor = randomColor; 
-            } else if (currentMode === "eraser") {
-                cell.style.backgroundColor = ""; // Reset to default
-            } else if (currentMode === "darken") {
-                let darkness = cell.dataset.darkness || 0; // if no darkness, start at 0
-                darkness = Math.min(Number(darkness) + 10, 100); // Increase darkness by 10%, max 100%
-                cell.dataset.darkness = darkness;
-                cell.style.backgroundColor = `rgba(0, 0, 0, ${darkness / 100})`; // Set background to black with opacity
-            } else if (currentMode === "black") {
-                cell.style.backgroundColor = "black";
-            
-            }
-        });
+        cell.addEventListener("mouseenter", () => chooseMode(cell));
 
         gridContainer.appendChild(cell);
     }
+
+
 }
+
+function chooseMode(cell) {
+    if (currentMode === "random") {
+        randomColor(cell);
+    } else if (currentMode === "eraser") {
+        eraserMode(cell);
+    } else if (currentMode === "darken") {
+        darkenMode(cell);
+    } else if (currentMode === "black") {
+        blackMode(cell);
+    }
+}
+
+function randomColor(cell) {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    cell.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+} // set cell to random color
+
+function eraserMode(cell) {
+    cell.style.backgroundColor = "";
+} // set cell to white
+
+function darkenMode(cell) {
+    let darkness = Number(cell.dataset.darkness) || 0;
+    darkness = Math.min(darkness + 10, 100);
+    cell.dataset.darkness = darkness;// store darkness level in data attribute
+    cell.style.backgroundColor = `rgba(0, 0, 0, ${darkness / 100})`;
+} // darken cell by 10%
+
+function blackMode(cell) {
+    cell.style.backgroundColor = "black";
+} // set cell to black
+
+
 
 createGridBtn.addEventListener("click", () => {
     let size = Number(gridSize.value);

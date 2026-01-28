@@ -4,6 +4,16 @@
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.page {
+    flex: 1;
+}
+
+
 body{
     font-family: 'Arial', sans-serif;
     background-color: #f2f2f8;
@@ -22,7 +32,7 @@ h1{
 
 button{
     padding: 10px 20px;
-    background-color: #1F1F37;
+    background-color: #9191C5;
     color: #f2f2f8;
     border: none;
     border-radius: 5px;
@@ -30,7 +40,7 @@ button{
     font-size: 16px;
 }
 button:hover{
-    background-color: #33334d;
+    background-color: #AEAED5;
 }
 
 .buttons-section{
@@ -62,3 +72,21 @@ button:hover{
     background-color: black;
 }
 
+footer{
+    margin-top: 10px;
+    font-size: 12px;
+    background-color: #1F1F37;
+    color: #f2f2f8;
+    text-align: center;
+    width: 100%;
+    padding: 15px 0;
+}
+
+footer a{
+    color: #9191C5;
+    text-decoration: none;
+}   
+
+footer a:hover{
+    text-decoration: underline;
+}
