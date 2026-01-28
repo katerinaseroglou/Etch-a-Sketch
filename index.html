@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etch-a-Sketch</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <h1>Etch-a-Sketch</h1>
+
+    <div class="input-section">
+        <label for="gridSize">Enter the Grid Size you want: (Valid numbers 1-100): </label>
+        <input type="number" id="gridSize" name="gridSize" min="1" max="100" value="16">
+        <button id="createGridBtn">Create Grid</button>
+    </div>
+    <div class="buttons-section">
+        <button id="blackBtn">Black Color</button>    
+        <button id="randomBtn">Random Colors</button>
+        <button id="darkenBtn">Darken</button>
+        <button id="eraserBtn">Eraser</button> 
+        <button id="clearBtn">Clear Grid</button>
+    </div>
+
+    <div id="gridContainer"></div>
+</body>
+</html>
