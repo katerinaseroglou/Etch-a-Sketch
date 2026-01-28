@@ -3,7 +3,8 @@
 A browser version of something between a sketchpad and an Etch-A-Sketch.
 This project was built as part of **The Odin Project – Foundations Course**.
 
-🔗 **Live Demo:** https://katerinaseroglou.github.io/Etch-a-Sketch/ 
+🔗 **Live Demo:** https://katerinaseroglou.github.io/Etch-a-Sketch/
+
 📘 **Assignment:** https://www.theodinproject.com/lessons/foundations-etch-a-sketch
 
 ---
